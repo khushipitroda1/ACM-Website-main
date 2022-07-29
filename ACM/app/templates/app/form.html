@@ -1,0 +1,62 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Form View{% endblock title %}
+
+{% block main-content %}
+
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+	<img class="formwave" src="{% static 'app/images/wave.jpg' %}">
+	<div class="formcontainer">
+		<div class="formimg">
+			<img src="{% static 'app/images/img_9.png' %}">
+		</div>
+
+		<div class="login-content mt-5">
+			<form action="/form/" method="post" class="memform">
+				{% csrf_token %}
+				<h3>Welcome</h3>
+				<h4>Join the LDCE ACM community</h4>
+
+           		<div class="input-div one mt-3">
+           		   <div class="form_i"><i class="fas fa-user"></i></div>
+           		   <div class="div">
+           		   	<input type="text" id="name" class="input" name="name" placeholder="Enter Name" required>
+           		   </div>  
+           		</div>
+				   
+				 
+           		<div class="input-div pass">
+           		   <div class="form_i"><i class="fas fa-envelope"></i></div>
+           		   <div class="div">
+           		    <input type="email" id="email" class="input" pattern="[^ @]*@[^ @]*" name="email" placeholder="Enter Email" required>
+            	   </div>
+            	</div>
+
+				<div class="input-div pass">
+					<div class="form_i"> <i class="fas fa-address-book"></i></div>
+					<div class="div">
+						<input type="tel" id="contact"class="input" pattern="^\d{10}$" name="contact" placeholder="Enter Contact" required>
+				 	</div>
+				 </div>
+
+				 <div class="input-div pass">
+					<div class="form_i"> <i class="fas fa-university"></i></div>
+					<div class="div">
+						<input type="text" class="input" name="sem" placeholder="Enter Semester" required>
+					</div>
+				</div>
+
+				 <div class="input-div pass">
+					<div class="form_i"> <i class="fas fa-graduation-cap"></i></div>
+					<div class="div">
+						<input type="text" id="dept"class="input" name="dept" placeholder= " Enter Department" required>
+					</div>
+			  	</div> 
+		
+				  <input type="submit" class="formbtn" value="Submit">
+		  </div> 
+            </form>
+        </div>
+  
+{% endblock main-content %}

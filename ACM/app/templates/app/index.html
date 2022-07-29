@@ -1,0 +1,452 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block main-content %}
+
+{% if latestevent %}
+<div id="boxes">
+  <div style="display: none;" id="dialog" class="window"> 
+    <div id="san">
+      <a class="close agree"><img src="{% static 'app/images/close-icon.png' %}" width="25" style="float:right; margin-right: -25px; margin-top: -20px; cursor: pointer;"></a>
+      <div class="popeve-wrap">
+        <div class="my-gallery">
+          <a href="{% url 'events' %}">
+            <img src="{{latestevent.eventImage.url}}"class="gallery-image" alt="Image"/>
+            <figure>
+                <div class="main-example">
+                  <div class="countdown-container" data-timer="{{sendtime}}" id="main-example"></div>
+                </div>
+            </figure>
+          </a>
+        </div>
+    </div>
+          <script type="text/template" id="main-example-template">
+            <div class="time <%= label %>">
+              <span class="count curr top"><%= curr %></span>
+              <span class="count next top"><%= next %></span>
+              <span class="count next bottom"><%= next %></span>
+              <span class="count curr bottom"><%= curr %></span>
+              <span class="label"><%= label.length < 6 ? label : label.substr(0, 3)  %></span>
+            </div>
+          </script>
+    </div>
+  </div>
+  <div id="mask"></div>
+</div>
+{% endif %}
+
+
+<div class="banner-wrap">
+  <div class="banner-slider">
+    <div class="banner-slide">        
+      <div class="area hero-image" >
+        <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="main-banner">
+          <div class="row">
+            <div class="col-lg-6 offset-lg-1 col-12 align-self-center">
+              <div class="owl-carousel owl-banner">
+                            
+                <div class="item header-text">
+                  <h6>Welcome LDCE ACM Chapter</h6>
+                  <h2><em>Grow your Skills</em><br> Together with us</h2>
+                  <p>You can be a part of this chapter today! It's just a single step process to be a local member of LDCE ACM</p>
+                  <div class="down-buttons">
+                    <div class="main-blue-button-hover">
+                      <a href="{% url 'form' %}">Join Us</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="item header-text">
+                  <h6>LDCE ACM Chapter</h6>
+                  <h2>See the <em>Latest Events</em> Organized <span>by us</span></h2>
+                  <p>Have a look at our past events and get the idea of the things we do at LDCE ACM</p>
+                  <div class="down-buttons">
+                    <div class="main-blue-button-hover">
+                      <a href="{% url 'events' %}">Our Events</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="item header-text">
+                  <h6>LDCE ACM Chapter</h6>
+                  <h2>Meet <em>Our Team</em> of <span>LDCE ACM chapter</span></h2>
+                  <p>Get to know the team behind the functioning of ACM LDCE and connect with us.</p>
+                  <div class="down-buttons">
+                    <div class="main-blue-button-hover">
+                      <a href="{% url 'ourteam' %}">Our Team</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+                        
+            <div class="col-lg-4 col-12">
+                          
+              <div class="wrapper" onClick="window.location.href=window.location.href">
+
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 251 251" style="enable-background:new 0 0 251 251;" xml:space="preserve">
+                <g id="Do">
+                <path id="Do_D" class="Do" d="M111.6,60.7c0,3.2,0.9,4.8,3.2,4.8c4.4,0,9.5-8.9,9.5-20.4c0-7.8-3.3-14.2-11-14.2
+                    c-9.6,0-12.1,6.9-12.1,13c0,5.5,2.8,8.8,3.1,8.9c0.6-0.2,0.9,0.2,0.9,0.8c0,1.5-1.4,3.4-2.8,3.4c-0.3,0-0.6-0.1-0.9-0.3
+                    c-0.2-0.1-4.8-4.4-4.8-12.5c0-10.5,6.7-17.8,16.8-17.8c10.7,0,15.4,8.9,15.4,18.2C129,61,120.8,70,114.5,70c-5.4,0-7.4-3.5-7.4-9.6
+                    V38.3c0-1.1-0.2-1.4-0.2-1.8c0-0.6,0.7-1,1.5-1c1.9,0,3.2,1.2,3.2,2.5V60.7z"/>
+                <path id="Do_O" class="Do" d="M156.7,59.9c-0.7,3.1-3.1,5.7-7,5.7c-1,0-2-0.1-2.8-0.4c-1.4,2.5-3.6,4.2-6.9,4.2
+                    c-5.8,0-8.4-5-8.4-10.7c0-8.5,4.6-13.6,5.9-13.6c1.5,0,2.7,3.1,1.2,4c-0.9,1.4-2.7,3.5-2.7,9.2c0,4.9,1.9,7.3,4.2,7.3
+                    c1.6,0,2.7-0.9,3.4-2.2c-2.7-2.3-4.2-6.1-4.2-10.3c0-3.6,1.6-6.8,4.7-6.8c2.7,0,4.9,4.1,4.9,9.7c0,2.1-0.2,4.3-0.8,6.2
+                    c0.4,0.1,0.8,0.1,1.2,0.1c2.5,0,3.8-1.9,4.2-4.2C153.7,56.9,157.5,56.7,156.7,59.9z M144.6,59.6c0.1-0.9,0.2-1.8,0.2-2.7
+                    c0-3.9-0.2-6.8-1.4-6.8c-0.6,0-1,0.9-1,2.7C142.4,55.5,143.3,57.9,144.6,59.6z"/>
+                </g>
+
+                <g id="DoLines">
+                  
+                <g id="LeftDotsAndLines">
+                      <g id="LineDotLeft_1">
+                          <path id="DoDotLeft_1" class="st0" d="M59.5,40.4c7.4,3,14.9,6,22.3,9c1.1,0.4,1.6-1.3,0.5-1.8c-7.4-3-14.9-6-22.3-9
+                          C58.9,38.2,58.4,39.9,59.5,40.4L59.5,40.4z"/>
+                          <circle id="DoLineLeft_1" class="st0" cx="55.8" cy="37.7" r="1.2"/>
+                      </g>  
+
+                      <g id="LineDotLeft_2">
+                          <circle id="DoDotLeft_2" class="st0" cx="59.2" cy="55.1" r="1.2"/>
+                          <path id="DoLineLeft_2" class="st0" d="M63.1,56c6.3,0,12.6,0,18.9,0c1.2,0,1.2-1.8,0-1.8c-6.3,0-12.6,0-18.9,0
+                          C61.9,54.2,61.9,56,63.1,56L63.1,56z"/>
+                      </g>
+
+
+                      <g id="LineDotLeft_3">
+                          <path id="DoLineLeft_3" class="st0" d="M59.5,70.4c7.4-3,14.9-6,22.3-9c1.1-0.4,1.6,1.3,0.5,1.8c-7.4,3-14.9,6-22.3,9
+                          C58.9,72.6,58.4,70.9,59.5,70.4L59.5,70.4z"/>
+                          <circle id="DoDotLeft_3" class="st0" cx="55.8" cy="73.2" r="1.2"/>
+                      </g>
+                  </g>
+
+                  <g id="RightDotsAndLines">
+                      <g id="LineDotRight_1">
+                          <path id="DoLineRight_1" class="st0" d="M189.3,40.4c-7.4,3-14.9,6-22.3,9c-1.1,0.4-1.6-1.3-0.5-1.8c7.4-3,14.9-6,22.3-9
+                          C189.9,38.2,190.4,39.9,189.3,40.4L189.3,40.4z"/>
+                          <circle id="DoDotRight_1" class="st0" cx="193" cy="37.7" r="1.2"/>
+                          </g>
+
+                          <g id="LineDotRight_2">
+                          <path id="DoLineRight_2" class="st0" d="M185.7,56c-6.3,0-12.6,0-18.9,0c-1.2,0-1.2-1.8,0-1.8c6.3,0,12.6,0,18.9,0
+                          C186.9,54.2,186.9,56,185.7,56L185.7,56z"/>
+                          <circle id="DoDotRight_2" class="st0" cx="189.6" cy="55.1" r="1.2"/>
+                          </g>
+
+                          <g id="LineDotRight_3">
+                          <circle id="DoDotRight_3" class="st0" cx="193" cy="73.2" r="1.2"/>
+                          <path id="DoLineRight_3" class="st0" d="M189.3,70.4c-7.4-3-14.9-6-22.3-9c-1.1-0.4-1.6,1.3-0.5,1.8c7.4,3,14.9,6,22.3,9
+                          C189.9,72.6,190.4,70.9,189.3,70.4L189.3,70.4z"/>
+                          </g>  
+                </g>
+                </g>
+
+
+                <g id="Something">
+                <path id="Something_S" class="Something" d="M46.7,102.7c0.5-2.4,1.7-5.4,2.6-8.2c-0.5-0.8-0.9-1.6-0.9-2.5c0-1.8,3.1-4.2,4.5-4.2
+                    c1.3,0,1.9,1,1.9,2.4c0,1.6-1.2,3.3-1.3,3.6c2.5,4.4,5.8,6.4,5.8,11.5c0,0.6-0.1,1.3-0.3,1.9c2.5-0.5,3.8-2.1,4.4-3.9
+                    c0.4-1,0.7-1.4,1.2-1.4c0.9,0,1.9,1.4,1.9,2.1c0,1.1-1.2,3.1-2.5,4.1c-1.7,1.3-3.9,2.4-7.2,2.6c-1.3,1.1-3.1,1.9-5.2,1.9
+                    c-2.2,0-4.8-1.2-5.9-2.2c-2.6-2.5-1.2-5.4,0-5.4c1.1,0,5.9,3.1,8.6,3.1c0.6-0.7,1.2-1.9,1.2-3.3c0-3.4-2-5.6-3.9-7.5
+                    c-0.9,2.1-1.4,3.9-2.1,6.5C49.2,106.1,46.3,104.6,46.7,102.7z"/>
+                <path id="Something_O" class="Something" d="M86.5,103.9c-0.6,2.9-2.8,5.3-6.5,5.3c-1,0-1.8-0.1-2.6-0.4c-1.3,2.3-3.4,3.9-6.4,3.9
+                    c-5.4,0-7.8-4.6-7.8-10c0-7.9,4.3-12.6,5.5-12.6c1.4,0,2.5,2.8,1.1,3.7c-0.9,1.3-2.5,3.3-2.5,8.6c0,4.5,1.8,6.7,3.9,6.7
+                    c1.5,0,2.5-0.8,3.2-2c-2.5-2.1-3.9-5.7-3.9-9.5c0-3.4,1.4-6.3,4.3-6.3c2.5,0,4.5,3.8,4.5,9c0,2-0.2,4-0.7,5.8
+                    c0.4,0.1,0.7,0.1,1.1,0.1c2.3,0,3.5-1.8,3.9-3.9C83.7,101.1,87.2,100.9,86.5,103.9z M75.3,103.6c0.1-0.9,0.2-1.7,0.2-2.5
+                    c0-3.6-0.2-6.3-1.3-6.3c-0.6,0-0.9,0.9-0.9,2.5C73.2,99.7,74,102,75.3,103.6z"/>
+                <path id="Something_M" class="Something" d="M107.7,112.6c-2.8,0-4.5-2.3-4.5-5V96.7c0-1.7-0.1-3.1-1-3.1c-1.4,0-4.5,4.6-4.8,8.8v7.8
+                    c0,1,0.1,2.3-1.5,2.3c-1.1,0-2.6-0.4-2.6-2.4V96.7c0-1.7-0.1-3.1-1-3.1c-1.4,0-4.5,4.6-4.8,8.8v7.8c0,1,0.1,2.3-1.5,2.3
+                    c-1.1,0-2.6-0.4-2.6-2.4v-17c0-1-0.2-1.3-0.2-1.7c0-0.5,0.6-0.9,1.4-0.9c1.8,0,2.9,1.1,2.9,2.4v2.2c1.4-2.9,3.3-5.1,5.7-5.1
+                    c3.2,0,4.1,2.6,4.2,5c1.3-2.8,3.2-5,5.6-5c3.5,0,4.3,2.9,4.3,5.4v11.1c0,0.5,0,2.5,1.4,2.5c2.1,0,3.1-3.4,3.6-5.8
+                    c0.2-1.1,0.7-1.6,1.3-1.6c0.9,0,1.9,1.2,1.9,2.2c0,0.1,0,0.2-0.1,0.4C114.4,107.8,112.3,112.6,107.7,112.6z"/>
+                <path id="Something_E" class="Something" d="M116.9,105.8c0.7,1.8,2.2,3.3,5,3.3c4.2,0,5.9-3.5,6.5-6.7c0.5-2.4,3.5-1.3,3.3,0.5
+                    c-0.4,3.3-2.5,9.7-10.4,9.7c-4.9,0-9.5-3.9-9.5-10.6c0-6.8,4.1-11.9,8.2-11.9c3,0,4.8,2.2,4.8,5.4
+                    C124.8,99.5,122.1,104.2,116.9,105.8z M116.3,102.8c2.7-1.2,4.4-4,4.4-7.2c0-1.2-0.4-1.9-1.1-1.9c-2.6,0-3.4,5.9-3.3,8.1
+                    C116.2,102.2,116.3,102.5,116.3,102.8z"/>
+                <path id="Something_T" class="Something" d="M128.4,86.1v-9c0-1.6-0.5-1.7-0.5-2c0-0.4,1-0.6,1.7-0.6c1.8,0,2.9,1.1,2.9,2.4v9.4
+                    c3.3,0,7-0.1,10.7-0.2c1.5-1.6,1,3.5-0.4,3.6c-4.3,0.1-7.4,0.1-10.3,0.1v17c0,1.7,0.7,2.5,1.8,2.5c2.1,0,3.1-3.4,3.6-5.8
+                    c0.2-1.1,0.7-1.6,1.3-1.6c0.9,0,1.9,1.2,1.9,2.2c0,0.1,0,0.2-0.1,0.4c-0.9,3.5-3.1,8.3-7.7,8.3c-2.9,0-4.9-1.7-4.9-5.9v-17
+                    c-2.4,0-3.7-0.1-3.7-0.1c-1.7,0-2.7-3.6-1.1-3.6C123.6,86,125.5,86.1,128.4,86.1z"/>
+                <path id="Something_H" class="Something" d="M138.1,78.2c0-1.6-0.5-1.7-0.5-2c0-0.4,1-0.6,1.7-0.6c1.8,0,2.9,1.1,2.9,2.4v17.6
+                    c1.4-3,3.4-5.3,6-5.3c3.6,0,4.4,2.9,4.4,5.4v11.1c0,0.5,0,2.5,1.4,2.5c2.1,0,3.1-3.4,3.6-5.8c0.6-3.3,3.5-0.7,3.1,1
+                    c-1,3.5-3.1,8.3-7.7,8.3c-2.8,0-4.5-2.3-4.5-5V96.7c0-1.7-0.1-3.1-1.1-3.1c-1.6,0-4.9,4.6-5.2,8.8v7.8c0,1,0.1,2.3-1.5,2.3
+                    c-1.1,0-2.6-0.4-2.6-2.4V78.2z"/>
+                <path id="Something_I" class="Something" d="M157.4,82.1c0-1.9,1.4-3.3,3.2-3.3c1.9,0,3.3,1.4,3.3,3.3c0,1.8-1.4,3.3-3.3,3.3
+                    C158.9,85.4,157.4,83.9,157.4,82.1z M161.9,106.6c0,0.5,0,2.5,1.4,2.5c2.1,0,3.1-3.4,3.6-5.8c0.6-3.3,3.5-0.7,3.1,1
+                    c-1,3.5-3.1,8.3-7.7,8.3c-2.8,0-4.5-2.3-4.5-5V93.3c0-1-0.2-1.3-0.2-1.7c0-0.5,0.6-0.9,1.4-0.9c1.8,0,2.9,1.1,2.9,2.4V106.6z"/>
+                <path id="Something_N" class="Something" d="M167,93.3c0-1-0.2-1.3-0.2-1.7c0-0.5,0.6-0.9,1.4-0.9c1.8,0,2.9,1.1,2.9,2.4v2.4
+                    c1.4-3,3.4-5.3,6-5.3c3.6,0,4.4,2.9,4.4,5.4v11.1c0,0.5,0,2.5,1.4,2.5c2.1,0,3.1-3.4,3.6-5.8c0.2-1.1,0.7-1.6,1.3-1.6
+                    c0.9,0,1.9,1.2,1.9,2.2c0,0.1,0,0.2-0.1,0.4c-0.9,3.5-3.1,8.3-7.7,8.3c-2.8,0-4.5-2.3-4.5-5V96.7c0-1.7-0.1-3.1-1.1-3.1
+                    c-1.6,0-4.9,4.6-5.2,8.8v7.8c0,1,0.1,2.3-1.5,2.3c-1.1,0-2.6-0.4-2.6-2.4V93.3z"/>
+                <path id="Something_G" class="Something" d="M196.2,115.8v-5.6c-1.1,1.1-2.5,1.9-4.4,1.9c-4.2,0-6.4-3.5-6.4-8.1c0-8.9,6.2-14.4,12.7-14.4
+                    c1.4,0,2.5,0.9,2.5,2.2c0,0.9-0.2,1.2-0.7,1.2c-0.5,0-1-0.1-1.6-0.1c-4.1,0-8.8,3.5-8.8,11.2c0,2.8,1.2,4.4,3.1,4.4
+                    c2.1,0,3.2-2.8,3.6-5v-6c0-1-0.2-1.3-0.2-1.7c0-0.5,0.6-0.9,1.4-0.9c1.8,0,2.9,1.1,2.9,2.4v14.6c1.9-2.1,3.6-4.8,4.7-8.5
+                    c0.3-1.1,0.7-1.6,1.3-1.6c0.9,0,1.9,1.2,1.9,2.2c0,0.1,0,0.3-0.1,0.5c-1.8,6.2-4.9,9.4-7.8,11.9v9.3c0,5.6-2.8,7.6-5.6,7.6
+                    c-3,0-5.1-2.7-5.1-6.2C189.6,121.6,192.7,118.9,196.2,115.8z M196.2,125.6v-5.7c-1.7,1.8-2.9,3.8-2.9,7c0,1.7,0.5,2.9,1.4,2.9
+                    C196.4,129.8,196.2,126.6,196.2,125.6z"/>
+                </g>
+
+
+
+
+
+                <g id="Creative">
+                <path id="#Creative_C" class="Creative" d="M61.3,123.3v6c-1.8-1.4-3.1-2.2-5.6-2.2c-3,0-5.6,2.5-5.6,5.8c0,3.3,2.7,5.8,5.6,5.8
+                    c2.6,0,3.9-0.7,5.6-2.2v6c-1.5,1.3-3.5,2-5.9,2c-6,0-11.8-4.2-11.8-11.6c0-7.4,5.7-11.6,11.8-11.6C57.7,121.3,59.8,122,61.3,123.3z
+                    "/>
+                <path id="#Creative_R" class="Creative" d="M76.9,127.3v6.3c-0.8-0.5-1.6-0.8-2.8-0.8c-1.6,0-2.8,1-3.5,2.5v8.7h-5.7v-16.9h5.7v3
+                    c1.1-1.8,2.2-3.3,4.3-3.3C75.7,126.8,76.3,127,76.9,127.3z"/>
+                <path id="#Creative_E" class="Creative" d="M95.9,137H84.4c0.5,1.7,2.1,2.5,4,2.5c2.6,0,4.3-0.6,5.2-1.1v4.9c-1.2,0.7-3,1.2-5.6,1.2
+                    c-4.8,0-9.3-3.3-9.3-8.7c0-5,3.9-9.2,9-9.2c4.8,0,8.2,3.3,8.2,8.5V137z M90.5,133.9c0-1.6-1.5-2.6-2.9-2.6c-1.5,0-2.7,0.8-3.1,2.6
+                    H90.5z"/>
+                <path id="#Creative_A" class="Creative" d="M110.2,128.7v-1.6h5.7V144h-5.7v-2.8c-0.8,1.9-2.6,3.3-5,3.3c-3.8,0-7.3-2.9-7.3-9
+                    c0-5.7,3.5-8.9,7.6-8.9C107.3,126.6,109.1,127.5,110.2,128.7z M103.8,135.5c0,1.8,1.2,3.2,3,3.2c1.4,0,3.3-1.1,3.3-3.5v-1.6
+                    c-1-0.8-2.3-1.4-3.5-1.4C105,132.2,103.8,133.7,103.8,135.5z"/>
+                <path id="#Creative_T" class="Creative" d="M132.5,127.1v4.5h-4.4v4.7c0,1.6,0.7,2.7,2,2.7c1.1,0,1.9-0.2,2.7-0.7v4.4
+                    c-0.7,1-2.3,1.8-4.5,1.8c-3.1,0-5.9-2.3-5.9-6.1v-6.8h-2.9v-3.5c2.2-0.6,4.5-2.4,5.5-6h3v5H132.5z"/>
+                <path id="#Creative_I" class="Creative" d="M144,144h-5.7v-12.3h-2.8v-4.6h8.4V144z M137.4,121.1c0-1.9,1.6-3.4,3.5-3.4
+                    c1.9,0,3.6,1.5,3.6,3.4c0,1.9-1.7,3.4-3.6,3.4C139,124.5,137.4,123,137.4,121.1z"/>
+                <path id="#Creative_V" class="Creative" d="M154.3,144l-8.2-16.9h6.6l3.4,8.5l3.4-8.5h6.6l-8.1,16.9H154.3z"/>
+                <path id="#Creative_Eii" class="Creative" d="M183.2,137h-11.5c0.5,1.7,2.1,2.5,4,2.5c2.6,0,4.3-0.6,5.2-1.1v4.9c-1.2,0.7-3,1.2-5.6,1.2
+                    c-4.8,0-9.3-3.3-9.3-8.7c0-5,3.9-9.2,9-9.2c4.8,0,8.2,3.3,8.2,8.5V137z M177.8,133.9c0-1.6-1.5-2.6-2.9-2.6c-1.5,0-2.7,0.8-3.1,2.6
+                    H177.8z"/>
+                </g>
+
+
+
+                <g id="EveryDayandBackground">
+
+                  <g>
+                    <polygon id="XMLID_35_" class="EveryDayandBackground" points="215.3,152.7 130.1,152.7 118.7,152.7 33.5,152.7 44,170.2 33.5,187.8 118.7,187.8 
+                        130.1,187.8 215.3,187.8 204.8,170.2 		"/>
+                </g>
+
+                <g id="EveryDay">
+                    <path id="Every_E" class="EveryLetters" d="M54,168.6h7.6v4H54v3.1h8.6v4.6h-14v-19.2h14v4.4H54V168.6z"/>
+                    <path id="Every_V" class="EveryLetters" d="M74.2,180.6l-8.9-19.5h6.3l4,10.6l4-10.6h6.3l-8.9,19.5H74.2z"/>
+                    <path id="Every_E" class="EveryLetters" d="M94,168.6h7.6v4H94v3.1h8.6v4.6h-14v-19.2h14v4.4H94V168.6z"/>
+                    <path id="Every_R" class="EveryLetters" d="M112.8,172.7v7.7h-5.4v-19.2h8.2c3.9,0,7.8,2.2,7.8,6.7c0,2.8-1.8,4.8-4.3,5.5l5.4,7.1h-6.5
+                        L112.8,172.7z M112.8,169.7c0.6,0.2,1.4,0.4,2.2,0.4c1.7,0,3-0.7,3-2c0-1.6-1.3-2-3-2h-2.2V169.7z"/>
+                    <path id="Every_Y" class="EveryLetters" d="M136.1,180.3h-5.4v-6.6l-7.5-12.6h6.3l4,7.1l3.9-7.1h6.3l-7.5,12.6V180.3z"/>
+                    <path id="Day_D" class="DayLetters" d="M154.3,161.1c5.2,0,10.2,3.4,10.2,9.6c0,5.7-3.8,10-9.8,10c-2.6,0-5.9-0.3-8.3-0.8v-18.8
+                        H154.3z M151.8,175.4c0.9,0.3,1.8,0.3,2.6,0.3c3.3,0,4.5-1.9,4.5-4.7c0-3-1.8-4.9-5-4.9h-2.2V175.4z"/>
+                    <path id="Day_A" class="DayLetters" d="M171.1,177.8l-0.9,2.6h-6.3l8.9-19.5h2.7l8.9,19.5h-6.3l-0.9-2.6H171.1z M174.2,169.5l-1.5,4
+                        h2.9L174.2,169.5z"/>
+                    <path id="Day_Y" class="DayLetters" d="M194.4,180.3h-5.4v-6.6l-7.5-12.6h6.3l4,7.1l3.9-7.1h6.3l-7.5,12.6V180.3z"/>
+                </g>
+
+                </g>
+
+                <path id="Border" class="" d="M244.9,55.1c-11.2,0-22.5,0-33.7,0c-1.3,0-1.3,2,0,2c10.9,0,21.8,0,32.7,0c0,30.1,0,47,0,77.1
+                c0,23.1,0,46.2,0,69.3c-14.9,0-29.9,0-44.8,0c-0.5,0-1,0.5-1,1c0,7.9,0,15.8,0,23.7c-5.5-4.2-10.9-8.5-16.4-12.7
+                c-3.6-2.8-7.2-5.6-10.8-8.4c-0.8-0.6-2.3-2.3-3.4-2.3c-10.7,0-21.4,0-32,0c-39.2,0-78.5,0-117.7,0c-4.3,0-8.6,0-13,0c0-30,0-60,0-90
+                c0-23.7,0-34.1,0-57.7c11.2,0,22.4,0,33.6,0c1.3,0,1.3-2,0-2c-11.5,0-23.1,0-34.6,0c-0.5,0-1,0.5-1,1c0,30.3,0,47.5,0,77.8
+                c0,24,0,48,0,71.9c0,0.5,0.5,1,1,1c30.3,0,60.5,0,90.8,0c18.9,0,37.8,0,56.7,0c4.9,0,9.7,0,14.6,0c0.5,0,0.9,0,1.4,0
+                c0,0,0.1,0,0.1,0c2.2,1.7,4.5,3.5,6.7,5.2c8.1,6.3,16.2,12.6,24.3,18.9c0.6,0.5,1.7,0.2,1.7-0.7c0-8.3,0-16.5,0-24.8
+                c14.9,0,29.9,0,44.8,0c0.5,0,1-0.5,1-1c0-30.4,0-60.9,0-91.3c0-23.4,0-33.7,0-57.1C245.9,55.5,245.5,55.1,244.9,55.1z"/>
+
+                <g>
+                    <path id="QuotationLeft" class="st0" d="M8.9,71.4c0-3,4.1-9.1,6.2-9.1c1.4,0,2.4,1.6,2.4,2.6c0,0.4-0.2,0.4-0.6,0.6
+                        c-0.6,0.2-1.8,1.6-3,3.1c1.7,0.4,3,1.9,3,3.7c0,2.2-1.9,3.9-4,3.9C10.8,76.3,8.9,74.7,8.9,71.4z M19,71.4c0-3,4.1-9.1,6.2-9.1
+                        c1.4,0,2.4,1.6,2.4,2.6c0,0.4-0.2,0.4-0.6,0.6c-0.6,0.2-1.8,1.6-3,3.1c1.7,0.4,3,1.9,3,3.7c0,2.2-1.9,3.9-4,3.9
+                        C20.9,76.3,19,74.7,19,71.4z"/>
+                </g>
+
+
+                <g>
+                    <path id="QuotationRight" class="st0" d="M239.6,190.3c0,3-4.1,9-6.2,9c-1.4,0-2.4-1.6-2.4-2.6c0-0.4,0.2-0.4,0.6-0.6
+                        c0.6-0.2,1.8-1.6,3-3.1c-1.7-0.4-3-1.9-3-3.7c0-2.2,1.9-3.9,4-3.9C237.7,185.5,239.6,187.1,239.6,190.3z M229.4,190.3
+                        c0,3-4.1,9-6.2,9c-1.4,0-2.4-1.6-2.4-2.6c0-0.4,0.2-0.4,0.6-0.6c0.6-0.2,1.8-1.6,3-3.1c-1.7-0.4-3-1.9-3-3.7c0-2.2,1.9-3.9,4-3.9
+                        C227.5,185.5,229.4,187.1,229.4,190.3z"/>
+                </g>
+
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="hero-overlay"></div>
+      </div>
+    </div>           
+    <!-- hero slide end -->
+  </div>
+      <div class="shape">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280" >
+          <path fill="#ffffff" fill-opacity="1">
+            <animate 
+              attributeName="d" 
+              dur="20000ms"
+              repeatCount="indefinite"
+                     values="M0,160L48,181.3C96,203,192,245,288,261.3C384,277,480,267,576,234.7C672,203,768,149,864,117.3C960,85,1056,75,1152,90.7C1248,107,1344,149,1392,170.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z; M0,160L48,181.3C96,203,192,245,288,234.7C384,224,480,160,576,133.3C672,107,768,117,864,138.7C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;                        M0,64L48,74.7C96,85,192,107,288,133.3C384,160,480,192,576,170.7C672,149,768,75,864,80C960,85,1056,171,1152,181.3C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;
+                             M0,160L48,181.3C96,203,192,245,288,261.3C384,277,480,267,576,234.7C672,203,768,149,864,117.3C960,85,1056,75,1152,90.7C1248,107,1344,149,1392,170.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;"
+            />
+          </path>
+          
+        </svg>
+      </div>    
+</div>
+
+
+          <div class="container homeabout">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+                <div class="homeaboutleftside">
+                  <img class="mainacmlogo" src="{% static 'app/images/mainacmlogo1.png' %}" alt="" srcset="">
+                  <div id="tag" class="mt-3"></div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 mt-5">
+                <h1 class="abouthead">About ACM</h1>
+                <p class="aboutpara mt-5">Founded by Richard Hamming in 1947, ACM brings together computing educators, researchers, and professionals to inspire dialogue, share resources, and address the field's challenges. As the world’s largest computing society, ACM strengthens the profession's collective voice through strong leadership, promotion of the highest standards, and recognition of technical excellence. ACM supports the professional growth of its members by providing opportunities for life‐long learning, career development, and professional networking.</p>
+            
+                <button class="learn-more learnmore1" onClick="javascript:window.open('https://www.acm.org/', '_blank');">
+                  <span class="circle" aria-hidden="true">
+                    <span class="icon arrow"></span>
+                  </span>
+                  <span class="button-text">ACM</span>
+                </button>
+
+                <button class="learn-more learnmore2" onClick="javascript:window.open('https://india.acm.org/', '_blank');">
+                  <span class="circle" aria-hidden="true">
+                    <span class="icon arrow"></span>
+                  </span>
+                  <span class="button-text">ACM India</span>
+                </button>
+
+              </div>
+            </div>
+          </div>
+
+
+          
+          <section id="hero" class="d-flex align-items-center">
+            <svg class="waves-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+              <path d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7  c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4  c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
+            </svg>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-lg-0 order-2 order-lg-1">
+                  <div class="homeaboutacm">
+                      <img src="{% static 'app/images/chapter-logo.jpg' %}" class="homeaboutacmlogo"  alt="">
+                      <h1>About LDCE ACM</h1>
+                  </div>
+                  <h4>To add a new feather to this global standard of our college, the LDCE ACM student chapter was started with the motivation, inspiration ,and guidance of our faculty sponsor Dr. Hiteshi Diwanji, the Head of I.T. Department, LDCE. The mission is to achieve excellence at par in <b>RISE </b>(Research, Innovation, Startups, Entrepreneurship).Started with merely four students members, today the community is 200+ members strong flourishing in various fields. We conduct some of the activities for our LDCE ACM local members such as research meetups, technical workshops and sessions, alumni & startup talks, contests and much more. We welcome every student to join this community and enrich themselves by learning from their seniors, alumni, and industrial experts.</h4>
+                  <div class="d-flex justify-content-center justify-content-lg-start">
+                    
+                    <button class="moreaboutmsg" onClick="javascript:window.open('{% url 'about' %}', '_self');">
+                      <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                      </span>
+                      <span class="moreabout-text">More About ACM</span>
+                    </button>
+    
+                  </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 hero-img">
+                  <img src="{% static 'app/images/hero-img.png' %}" class="img-fluid animated" alt="">
+                </div>
+              </div>
+            </div>
+        
+            <svg class="waves-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+              <path d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7  c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4  c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
+           </svg>
+
+          </section>
+        
+
+            <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts my-5">
+      <div class="container">
+
+        <div class="row counterdiv pt-5">
+          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start">
+            <img src="{% static 'app/images/counts-img.svg' %}" alt="" class="img-fluid">
+          </div>
+
+          <div class="media col-xl-7 d-flex align-items-stretch">
+            <div class="content d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-award"></i>
+                    <h4 class="purecounter" id="number1">2019</h4>
+                    <p><strong>Year of Establishment</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-person-fill"></i>
+                    <h4 class="purecounter" id="number2">{{global}}</h4>
+                    <p><strong>Global Members</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-person"></i>
+                    <h4 class="purecounter" id="number3">{{local}}</h4>
+                    <p><strong>Local Members</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-clock"></i>
+                    <h4 class="purecounter" id="number4">{{eventsno}}</h4>
+                    <p><strong>Events</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+
+    <section class="section-benifits" id="about">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 col-md-6 col-12  benihead">
+                  <h2 class="mb-lg-3 mb-3">Benifits of Membership</h2>
+                    <p><span><i class="fa fa-check"></i> A vast network of nearly 100,000 highly dedicated student and professional peers.</span></p>
+                    <p><span><i class="fa fa-check"></i> Learning Center with resources including online courses targeted towards essential IT skills; ( They are amazing !)</span></p>
+                    <p><span><i class="fa fa-check"></i> Online books from Safari® (the popular magazine!!)</span></p>
+                    <p><span><i class="fa fa-check"></i> Online books & videos from Skillsoft®, Morgan Kaufmann and Syngress; (Best books one can get)</span></p>
+                    <p><span><i class="fa fa-check"></i> ACM's Career & Job Center, where you will find targeted job opportunities and more! </span></p>
+                    <p><span><i class="fa fa-check"></i> Access to thousands of Research Papers through ACM Digital Library</span></p>
+              </div>
+
+              <div class="col-lg-4 col-md-5 col-12 mx-auto my-auto">
+                  <div class="featured-circle bg-white shadow-lg d-flex justify-content-center align-items-center">
+                      <p class="featured-text"><span class="featured-number">{{yearsofexp}}</span> Years<br> of Legacy</p>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+
+
+{% endblock main-content %}

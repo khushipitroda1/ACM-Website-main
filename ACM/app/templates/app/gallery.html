@@ -1,0 +1,43 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Gallery{% endblock title %}
+
+{% block main-content %}
+
+<section class="gallarysec">
+<div class="container pt-5 eventhead">
+    <div class="row text-center">
+        <div class="col-md-12">
+            <div class="port_heading_wrapper text-center">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <h1 class="big big2">Gallery</h1>
+                    <h2 class="port_sub_heading_sk">Gallery</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="portfolio">
+        <div class="row portfolio-container">
+        {%for i in gpic%}
+        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item">
+            <a href="{% url 'gallery-view' i.id %}">
+                <div class="portfolio-wrap">
+                    <div class="my-gallery">
+                        <img src=" {{i.egimage.url}}"class="gallery-image" alt="Image"/>
+                        <figure>
+                            <p>{{i.egname}}</p>
+                        </figure>
+                    </div>
+                </div>
+            </a>
+        </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+</section>
+{% endblock main-content %}
